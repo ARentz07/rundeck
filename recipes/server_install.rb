@@ -22,10 +22,12 @@ include_recipe 'rundeck::default'
 if node['rundeck']['secret_file'].nil?
   rundeck_secure = data_bag_item(node['rundeck']['rundeck_databag'], node['rundeck']['rundeck_databag_secure'])
   rundeck_users = data_bag_item(node['rundeck']['rundeck_databag'], node['rundeck']['rundeck_databag_users'])
+  rundeck_ldap = node['rundeck']['ldap']
 else
   rundeck_secret = Chef::EncryptedDataBagItem.load_secret(node['rundeck']['secret_file'])
   rundeck_secure = Chef::EncryptedDataBagItem.load(node['rundeck']['rundeck_databag'], node['rundeck']['rundeck_databag_secure'], rundeck_secret)
   rundeck_users = Chef::EncryptedDataBagItem.load(node['rundeck']['rundeck_databag'], node['rundeck']['rundeck_databag_users'], rundeck_secret)
+  rundeck_ldap = Chef::EncryptedDataBagItem.load(node['rundeck']['rundeck_databag'], node['rundeck']['rundeck_databag_ldap'], rundeck_secret)['ldap']
 end
 
 aclpolicies = data_bag_item(node['rundeck']['rundeck_databag'], node['rundeck']['rundeck_databag_aclpolicies'])
@@ -136,7 +138,7 @@ template "#{node['rundeck']['configdir']}/jaas-activedirectory.conf" do
   group node['rundeck']['group']
   source 'jaas-activedirectory.conf.erb'
   variables(
-    ldap: node['rundeck']['ldap'],
+    ldap: rundeck_ldap,
     configdir: node['rundeck']['configdir']
   )
   notifies (node['rundeck']['restart_on_config_change'] ? :restart : :nothing), 'service[rundeck]', :delayed
