@@ -23,7 +23,7 @@
 	<security-role>
 		<role-name><%=node['rundeck']['default_role']%></role-name>
 	</security-role>
-	<%for @role in node['rundeck']['security_roles']%>
+	<%for @role in node['rundeck']['security_roles'] || []%>
 	<security-role>
 		<role-name><%=@role%></role-name>
 	</security-role>
