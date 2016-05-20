@@ -216,15 +216,6 @@ bags = data_bag(node['rundeck']['rundeck_projects_databag'])
 
 puts "chef-rundeck url: #{node['rundeck']['chef_rundeck_url']}"
 
-# Plugins
-remote_file 'rundeck-slack-incoming-webhook-plugin' do
-  source node['rundeck']['plugin']['slack']
-  path "#{node['rundeck']['basedir']}/libext/rundeck-slack-incoming-webhook-plugin.jar"
-  owner node['rundeck']['user']
-  group node['rundeck']['group']
-  action :create
-end
-
 # Assuming node['rundeck']['plugins'] is a hash containing name=>attributes
 unless node['rundeck']['plugins'].nil?
   node['rundeck']['plugins'].each do | plugin_name, plugin_attrs | 
