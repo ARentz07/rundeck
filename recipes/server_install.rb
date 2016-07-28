@@ -232,7 +232,6 @@ unless node['rundeck']['plugins'].nil?
   end
 end
 
-# projects = {}
 bags.each do |project|
   pdata = data_bag_item(node['rundeck']['rundeck_projects_databag'], project)
   custom = ''
@@ -253,9 +252,12 @@ bags.each do |project|
 
   bash "check-project-#{project}" do
     user node['rundeck']['user']
-    code cmd
+    code cmd.strip
     not_if do
       File.exist?("#{node['rundeck']['datadir']}/projects/#{project}/etc/project.properties")
     end
+
+    retries 5
+    retry_delay 15
   end
 end

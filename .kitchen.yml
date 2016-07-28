@@ -1,7 +1,7 @@
 ---
 driver:
   name: vagrant
-
+  
 provisioner:
   name: chef_zero
 
@@ -10,7 +10,6 @@ platforms:
     run_list:
     - "recipe[apt::default]"
     - "recipe[rundeck::node_unix]"
-
 suites:
   - name: server
     run_list:
