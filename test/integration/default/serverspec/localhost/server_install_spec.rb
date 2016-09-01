@@ -67,7 +67,7 @@ describe file('/etc/rundeck/rundeck-config.properties') do
   it { should exist }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
-  it { should_not contain(/dataSource.url=jdbc:mysql:\/\/someIPorFQDN:3306\/rundeckdb?autoReconnect=true/) }
+  it { should_not contain(/dataSource.url = jdbc:mysql:\/\/someIPorFQDN:3306\/rundeckdb?autoReconnect=true/) }
   it { should_not contain(/dataSource.username = \w/) }
   it { should_not contain(/dataSource.password = \w/) }
 end

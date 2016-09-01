@@ -21,3 +21,14 @@ suites:
         hostname: 'localhost'
         security_roles: ['superusers', 'run_only_users']
       domain: 'kitchentest'
+  - name: rdbms
+    run_list:
+      - "recipe[rundeck::server]"
+      - "recipe[create_chef_dir]"
+    attributes:
+      rundeck:
+        hostname: 'localhost'
+        security_roles: ['superusers', 'run_only_users']
+        rdbms:
+          enable: true
+      domain: 'kitchentest'
