@@ -5,7 +5,7 @@ describe file('/etc/rundeck/rundeck-config.properties') do
   it { should exist }
   it { should be_owned_by 'rundeck' }
   it { should be_grouped_into 'rundeck' }
-  it { should contain(/dataSource.url = jdbc:mysql:\/\/someIPorFQDN:3306\/rundeckdb?autoReconnect=true/) }
-  it { should contain(/dataSource.username = \w/) }
-  it { should contain(/dataSource.password = \w/) }
+  its(:content) { should match(/dataSource.url\s*=\s*jdbc:mysql:\/\/someIPorFQDN:3306\/rundeckdb\?autoReconnect=true/) }
+  its(:content) { should match(/dataSource.username\s*=\s*\w/) }
+  its(:content) { should match(/dataSource.password\s*=\s*\w/) }
 end
