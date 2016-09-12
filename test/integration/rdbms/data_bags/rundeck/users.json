@@ -1,14 +1,15 @@
 {
   "id": "users",
-  "description": "Rundeck users",
+  "description": {
+    "encrypted_data": "EI7NcpGUnKmN1JDxNG3ycSVB9tHkggcLCgAQHRop9Z6iPs0Aw01nhJv3S/2O\nR5zU\n",
+    "iv": "lQarkBIbOLuceg68tcD4Dg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
   "users": {
-    "admin" : {
-      "password": "admin",
-      "groups": [ "admin", "user", "architect", "deploy", "build" ]
-    },
-    "n00b": {
-      "password": "TheBestPassw0rd",
-      "groups": "user"
-    }
+    "encrypted_data": "3AxNN1Cw/xDdxyzTl6MqsD/5ldtGWwd+ffpmZVznDxSGm+gv4KL51k62Kcqu\n26Q38TO7atTF9rKbz+s8eP+Lq0eoGBKAu9uji/67mka/oj3+i3VXLv6PXZhJ\nfHi5DAafG1cpM58uxZ6pv3yH/jC7gJKsjPQjJ4fqzwmJg4CKLednsPbT8075\nyrui/RfRLfxC+BUIHN0sG68unFk+BGABvA==\n",
+    "iv": "dkmePeUD6daw5G+Z0CrQZQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
   }
 }

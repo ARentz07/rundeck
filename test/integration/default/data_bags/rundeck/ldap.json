@@ -1,0 +1,15 @@
+{
+  "id": "ldap",
+  "binddn": {
+    "encrypted_data": "8/fLPaolhttC7NBxyD1jbwXv6ZXmixLXo2+7QUOoa2QOd8M07rqHUe2QHArm\nzEiq\n",
+    "iv": "vOCkbJWD3FS2YbQVLdFVfA==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  },
+  "bindpwd": {
+    "encrypted_data": "hV9CabWkVaRbUe4DNMpI+yRn8RN3dEG0tHhw8zJq1d+9kximWA/duOULD2Gj\nX1dF\n",
+    "iv": "trWMtBsxiCuGKyCGlHK+xg==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

@@ -1,8 +1,9 @@
 {
-  "id" : "rdbms",
-  "rdbms" : {
-    "dbuser" : "rundeckdb",
-    "dbpassword" : "Chang3ME"
+  "id": "rdbms",
+  "rdbms": {
+    "encrypted_data": "5cBmYmUOB4RdmsuNUED0BtOEoSkcUkS4hdqvEtuuqP2YxbfALrORGG8/fASa\nvnWT47pneFjXYGITJGiTWBOTDw==\n",
+    "iv": "JxIazHxlcNkrh0ci+eqf5g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
   }
 }
-
